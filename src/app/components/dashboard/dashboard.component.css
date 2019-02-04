@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  margin-top: 20px;
+}
+
+.del {
+  cursor: pointer;
+}
+
+.selector-button {
+  margin-top: 20px;
+}

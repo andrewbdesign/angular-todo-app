@@ -1,0 +1,53 @@
+<div class="container">
+  
+  <div class="current-list">
+      <h1>{{title}}</h1>
+      <hr>
+      
+      <ol *ngIf="items">
+        <li *ngFor="let item of items; let i = index"> {{ item }} | 
+          <span class="del" (click)="onEditItem(i)">Edit</span> | 
+          <span class="del" (click)="onDeleteItem(i)">Delete</span> |
+        </li>
+      </ol>
+      <p *ngIf="optionsAreValid()">Write something punk</p>
+  </div>
+  
+  <hr>
+  
+  <div class="input-fields">
+      <p>Current value: {{ item }}</p>
+      <form class="form">
+          <input 
+            [(ngModel)]="item"
+            class="input" 
+            type="text" 
+            placeholder="Write something"
+            name="item"
+            >
+          <button 
+            *ngIf="!isUpdating"
+            [disabled]="formIsValid()"
+            class="button" 
+            (click)="onAddItem($event)"
+            type="submit"
+          >Add Item</button>
+
+          <button 
+            *ngIf="isUpdating"
+            [disabled]="formIsValid()"
+            class="button" 
+            (click)="onUpdateItem()"
+            type="button"
+          >Update Item</button>
+      </form>
+
+      <button
+        class="button is-primary selector-button"
+        (click)="onSelectItem()"
+        [disabled]="optionsAreValid()"
+        >Choose option</button>
+  </div>
+  
+  <br>
+</div>
