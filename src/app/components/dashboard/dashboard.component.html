@@ -43,6 +43,7 @@
       </form>
 
       <button
+        *ngIf="!isUpdating"
         class="button is-primary selector-button"
         (click)="onSelectItem()"
         [disabled]="optionsAreValid()"
