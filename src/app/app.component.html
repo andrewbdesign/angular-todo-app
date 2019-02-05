@@ -1,5 +1,3 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-</div>
-<app-dashboard></app-dashboard>
+<app-dashboard [myTitle]="myTitle" (messageEvent)="recieveMessage($event)"></app-dashboard>
 <router-outlet></router-outlet>

@@ -5,8 +5,13 @@
 
 .del {
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .selector-button {
   margin-top: 20px;
+}
+
+li {
+  line-height: 2.5;
 }

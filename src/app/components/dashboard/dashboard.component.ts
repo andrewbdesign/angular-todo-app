@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,11 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public title: string = 'To Do App'
   public item: string = ''
   public currentIndex: string = ''
   public items:  Array<string> = []
   public isUpdating: boolean = false
+  public message: string = 'Hola coma estas muy bien!!!'
+
+  @Input() myTitle: string
+  @Output() messageEvent = new EventEmitter<string>()
 
   constructor() { }
 
@@ -24,6 +27,10 @@ export class DashboardComponent implements OnInit {
       this.items.push(this.item)
       this.item = ''
     }
+  }
+
+  sendMessage() {
+    this.messageEvent.emit(this.message)
   }
 
   onDeleteItem(item) {
