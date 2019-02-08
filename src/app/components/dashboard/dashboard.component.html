@@ -8,7 +8,8 @@
         <li *ngFor="let item of items; let i = index"> {{ item }}
           <span class="del button is-info" (click)="onEditItem(i)">Edit</span> 
           <span class="del button is-danger" (click)="onDeleteItem(i)">Delete</span>
-          <span class="del button is-success" (click)="sendMessage()">Change Title</span>
+          <span class="del button is-success" (click)="onDeleteItem(i)">Done</span>
+          <!-- <span class="del button is-success" (click)="sendMessage()">Change Title</span> -->
         </li>
       </ol>
       <p *ngIf="optionsAreValid()">Write something punk</p>

@@ -1,3 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-dashboard [myTitle]="myTitle" (messageEvent)="recieveMessage($event)"></app-dashboard>
+<app-dashboard 
+    [myTitle]="myTitle"
+    [items]="items"
+    (addItemEvent)="addItem($event)"
+    (removeItemEvent)="removeItem($event)"
+    >
+</app-dashboard>
 <router-outlet></router-outlet>

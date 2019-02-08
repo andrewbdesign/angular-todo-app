@@ -8,12 +8,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class DashboardComponent implements OnInit {
   public item: string = ''
   public currentIndex: string = ''
-  public items:  Array<string> = []
   public isUpdating: boolean = false
-  public message: string = 'Hola coma estas muy bien!!!'
 
-  @Input() myTitle: string
-  @Output() messageEvent = new EventEmitter<string>()
+  @Input() items: string;
+  @Input() myTitle: string;
+  @Output() addItemEvent = new EventEmitter<string>()
+  @Output() removeItemEvent = new EventEmitter<number>()
 
   constructor() { }
 
@@ -22,20 +22,15 @@ export class DashboardComponent implements OnInit {
 
   onAddItem(e:any) {
     e.preventDefault()
-    console.log(`add item: ${this.item}`)
+    // console.log(`add item: ${this.item}`)
     if (this.item.length > 0 && this.item !== '') {
-      this.items.push(this.item)
+      this.addItemEvent.emit(this.item)
       this.item = ''
     }
   }
 
-  sendMessage() {
-    this.messageEvent.emit(this.message)
-  }
-
   onDeleteItem(item) {
-    console.log('delete item', item)
-    this.items.splice(item, 1)
+    this.removeItemEvent.emit(item)
   }
 
   onEditItem(item) {

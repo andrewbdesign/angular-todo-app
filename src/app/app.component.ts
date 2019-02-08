@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { Item } from './models/item.model'
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public myTitle: string = 'This is a To Do App'
+  public items:  Array<string> = []
 
-  recieveMessage($event) {
-    this.myTitle = $event
+  addItem($event) {
+    this.items.push($event)
+  }
+  removeItem($event) {
+    this.items.splice($event, 1)
   }
 }
